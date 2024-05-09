@@ -1,0 +1,38 @@
+public class EvenOdd {
+    int val;
+    EvenOdd next;
+    EvenOdd head; 
+    
+
+    EvenOdd(int val) {
+        this.val = val;
+        this.next=null; 
+    }
+    
+    
+public static void main(String[] args) {
+    Group group = new Group();
+    
+        // Test case 1
+        EvenOdd list1 = new EvenOdd(1);
+        list1.next = new EvenOdd(2);
+        list1.next.next = new EvenOdd(3);
+        list1.next.next.next = new EvenOdd(4);
+        list1.next.next.next.next = new EvenOdd(5);
+        System.out.println("Example 1:");
+        System.out.println(group.linkedListToString(group.oddEvenList(list1)));
+        
+        // Test case 2
+        EvenOdd list2 = new EvenOdd(2);
+        list2.next = new EvenOdd(1);
+        list2.next.next = new EvenOdd(3);
+        list2.next.next.next = new EvenOdd(5);
+        list2.next.next.next.next= new EvenOdd(6);
+        list2.next.next.next.next.next = new EvenOdd(4);
+        list2.next.next.next.next.next.next = new EvenOdd(7);
+        System.out.println("Example 2:");
+        System.out.println(group.linkedListToString(group.oddEvenList(list2)));
+        
+      
+    }
+}
