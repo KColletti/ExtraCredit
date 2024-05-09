@@ -1,0 +1,42 @@
+public class Group {
+    
+    public EvenOdd oddEvenList(EvenOdd head) {
+        if (head == null || head.next == null) {
+            //empty or single node list 
+            return head;
+        }
+    
+        //pointer for the odd indexed nodes 
+        EvenOdd odd = head;
+        
+        //pointer for the even indexed numbers 
+        EvenOdd even = head.next;
+        
+        //maintain even head 
+        EvenOdd evenHead = even;
+        
+        while (even != null && even.next != null) {
+            //chnage pointers for the odd list 
+            odd.next = even.next;
+            odd = odd.next;
+            
+            //change pointers for the even list 
+            even.next = odd.next;
+            even = even.next;
+        }
+        //assign even list at the end of the odd list 
+        odd.next = evenHead;
+        return head;
+    }
+    
+     //Function to convert the linked list to string
+   public String linkedListToString(EvenOdd head) {
+        StringBuilder sb = new StringBuilder();
+        while (head != null) {
+            sb.append(head.val).append(" -> ");
+            head = head.next;
+        }
+        sb.append("null");
+        return sb.toString();
+   }
+}
